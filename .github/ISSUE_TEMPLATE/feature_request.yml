@@ -1,0 +1,36 @@
+name: 🚀 Feature Request
+description: Suggest a new feature or improvement for the project
+title: "[FEATURE]: Brief Description"
+labels: [enhancement, needs-triage]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **Thank you for helping us improve this project!**
+
+  - type: input
+    id: feature-summary
+    attributes:
+      label: "Feature Summary"
+      description: "Briefly describe the new feature or improvement"
+      placeholder: "Example: Add a dark mode"
+
+  - type: textarea
+    id: feature-benefits
+    attributes:
+      label: "Benefits"
+      description: "Explain why this feature would be useful"
+      placeholder: "Example: Better accessibility and reduced eye strain"
+
+  - type: textarea
+    id: feature-alternatives
+    attributes:
+      label: "Alternatives"
+      description: "Describe any alternative solutions or features you've considered"
+      placeholder: "Example: Use an existing browser extension"
+
+  - type: textarea
+    id: feature-additional
+    attributes:
+      label: "Additional Details"
+      description: "Any other information or context"
