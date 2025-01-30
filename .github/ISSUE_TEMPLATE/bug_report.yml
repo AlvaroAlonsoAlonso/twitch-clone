@@ -1,14 +1,16 @@
 name: 🐞 Bug Report
 description: Report a bug found in the project
 title: "[BUG]: Brief Description"
-labels: [bug, needs-triage]
+labels: [bug]
+assignees:
+  - AlvaroAlonsoAlonso
 body:
   - type: markdown
     attributes:
       value: |
         **Before submitting a bug, please check whether this bug has already been reported.**
 
-  - type: input
+  - type: textarea
     id: bug-summary
     attributes:
       label: "Bug Summary"
@@ -56,9 +58,3 @@ body:
       label: "Version"
       description: "Indicate the version where the bug occurs"
       placeholder: "e.g., v1.2.3"
-
-  - type: textarea
-    id: bug-additional
-    attributes:
-      label: "Additional Details"
-      description: "Any other context or information"
