@@ -25,6 +25,7 @@ module.exports = {
     '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
     'vue/script-setup-uses-vars': 'error',
     'vue/multi-word-component-names': 'off',
+    'prettier/prettier': ['error', { endOfLine: 'lf', tabWidth: 2 }],
   },
   overrides: [
     {
