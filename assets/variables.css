@@ -1,0 +1,20 @@
+:root {
+  /* Colors */
+  --primary-color: #007bff;
+  --secondary-color: #d4dbff;
+  --black-color: #000;
+
+  /* Fonts */
+  --font-primary: 'Roboto', sans-serif;
+  --font-secondary: 'Open Sans', sans-serif;
+
+  /* Font Sizes */
+  --font-s-small: 0.875rem;
+  --font-s-default: 1rem;
+  --font-s-large: 1.25rem;
+
+  /* Font Weights */
+  --font-w-regular: 400;
+  --font-w-bold: 700;
+  --font-w-light: 300;
+}
