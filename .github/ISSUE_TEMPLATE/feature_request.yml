@@ -1,6 +1,6 @@
 name: 🚀 Feature Request
 description: Suggest a new feature or improvement for the project
-title: "[FEATURE]: Brief Description"
+title: '[FEATURE]: Brief Description'
 labels: [feature, frontend]
 assignees:
   - AlvaroAlonsoAlonso
@@ -13,6 +13,6 @@ body:
   - type: textarea
     id: feature-summary
     attributes:
-      label: "Feature Summary"
-      description: "Briefly describe the new feature or improvement"
-      placeholder: "Example: Add a dark mode"
+      label: 'Feature Summary'
+      description: 'Briefly describe the new feature or improvement'
+      placeholder: 'Example: Add a dark mode'
