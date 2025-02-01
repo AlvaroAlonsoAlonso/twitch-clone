@@ -1,6 +1,6 @@
 name: 🐞 Bug Report
 description: Report a bug found in the project
-title: "[BUG]: Brief Description"
+title: '[BUG]: Brief Description'
 labels: [bug]
 assignees:
   - AlvaroAlonsoAlonso
@@ -13,15 +13,15 @@ body:
   - type: textarea
     id: bug-summary
     attributes:
-      label: "Bug Summary"
-      description: "Briefly describe the bug"
-      placeholder: "Example: The page freezes when clicking the save button"
+      label: 'Bug Summary'
+      description: 'Briefly describe the bug'
+      placeholder: 'Example: The page freezes when clicking the save button'
 
   - type: textarea
     id: bug-steps
     attributes:
-      label: "Steps to Reproduce"
-      description: "Describe the steps to reproduce the bug"
+      label: 'Steps to Reproduce'
+      description: 'Describe the steps to reproduce the bug'
       placeholder: |
         1. Go to...
         2. Click on...
@@ -30,20 +30,20 @@ body:
   - type: textarea
     id: bug-expected
     attributes:
-      label: "Expected Behavior"
-      description: "What did you expect to happen?"
-      placeholder: "The system should..."
+      label: 'Expected Behavior'
+      description: 'What did you expect to happen?'
+      placeholder: 'The system should...'
 
   - type: textarea
     id: bug-screenshots
     attributes:
-      label: "Screenshots"
-      description: "If possible, add screenshots that illustrate the issue"
+      label: 'Screenshots'
+      description: 'If possible, add screenshots that illustrate the issue'
 
   - type: dropdown
     id: bug-browser
     attributes:
-      label: "Browser(s) Affected"
+      label: 'Browser(s) Affected'
       multiple: true
       options:
         - Chrome
@@ -55,6 +55,6 @@ body:
   - type: input
     id: bug-version
     attributes:
-      label: "Version"
-      description: "Indicate the version where the bug occurs"
-      placeholder: "e.g., v1.2.3"
+      label: 'Version'
+      description: 'Indicate the version where the bug occurs'
+      placeholder: 'e.g., v1.2.3'
