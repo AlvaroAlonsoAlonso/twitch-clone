@@ -1,3 +1,10 @@
 <template>
-  <h1>Home</h1>
+  <section class="home">
+    <SectionsMainVideoChannels />
+  </section>
 </template>
+<style lang="scss" scoped>
+.home {
+  width: 75%;
+}
+</style>
