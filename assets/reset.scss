@@ -44,7 +44,7 @@ body {
   font-size: var(--font-s-default);
   font-weight: var(--font-w-regular);
   line-height: 1.5;
-  background-color: var(--secondary-color);
+  background-color: var(--c-black-pure);
 }
 
 h1,
@@ -56,26 +56,11 @@ h6 {
   font-family: var(--font-secondary);
   font-weight: var(--font-w-bold);
   line-height: 1.2;
-  color: var(--primary-color);
+  color: var(--c-white);
 }
 
 p {
   font-size: var(--font-s-default);
   line-height: 1.5;
-}
-
-button {
-  font-family: var(--font-primary);
-  font-size: var(--font-s-large);
-  font-weight: var(--font-w-bold);
-  color: var(--black-color);
-  background-color: var(--primary-color);
-  cursor: pointer;
-  padding: 0.5em;
-  border-radius: 0.5em;
-}
-
-button:hover {
-  background-color: var(--black-color);
-  color: var(--primary-color);
+  color: var(--c-white);
 }

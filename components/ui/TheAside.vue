@@ -17,6 +17,7 @@
   color: var(--c-white);
   padding: 1em;
   height: 100vh;
+  width: 20%;
 
   &__header {
     @include flex($gap: 1em);
