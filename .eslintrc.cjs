@@ -1,8 +1,6 @@
 module.exports = {
-  root: true,
   env: {
     browser: true,
-    node: true,
     es2021: true,
   },
   parser: 'vue-eslint-parser',
@@ -10,7 +8,6 @@ module.exports = {
     parser: '@typescript-eslint/parser',
     ecmaVersion: 'latest',
     sourceType: 'module',
-    extraFileExtensions: ['.vue'],
   },
   plugins: ['@typescript-eslint', 'vue', 'prettier'],
   extends: [
@@ -25,14 +22,7 @@ module.exports = {
     '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
     'vue/script-setup-uses-vars': 'error',
     'vue/multi-word-component-names': 'off',
-    'prettier/prettier': ['error', { endOfLine: 'lf', tabWidth: 2 }],
+    'prettier/prettier': ['error', { endOfLine: 'auto' }],
+    'no-undef': 'off',
   },
-  overrides: [
-    {
-      files: ['*.vue'],
-      rules: {
-        'vue/multi-word-component-names': 'off',
-      },
-    },
-  ],
 }
