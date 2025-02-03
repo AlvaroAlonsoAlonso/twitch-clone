@@ -1,6 +1,6 @@
 <template>
   <section class="tab">
-    <p>Español</p>
+    <p><slot /></p>
   </section>
 </template>
 
