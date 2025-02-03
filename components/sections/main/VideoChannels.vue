@@ -20,7 +20,7 @@
   width: 100%;
 
   &__link {
-    @include flex($gap: 1em);
+    @include flex($justify: flex-start, $gap: 1em);
 
     padding: 1em 0;
     width: 100%;
