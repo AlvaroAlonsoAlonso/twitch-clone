@@ -14,7 +14,6 @@
   @include flex(column);
 
   &__header {
-    background-color: aquamarine;
     width: 100%;
   }
 

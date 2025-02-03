@@ -8,7 +8,7 @@
       />
       <h1>MIDUTCH</h1>
       <Icon
-        name="simple-line-icons:list"
+        name="heroicons-solid:dots-vertical"
         style="color: white"
         class="navbar__icon"
       />
@@ -60,7 +60,6 @@
   }
 
   &__icon-search {
-    background-color: var(--c-grey-light);
     cursor: pointer;
   }
 
