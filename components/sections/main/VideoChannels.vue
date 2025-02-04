@@ -1,18 +1,27 @@
+<script lang="ts" setup>
+import type { Stream } from '@/interfaces/twitch'
+defineProps<{
+  categoryStreams: { [key: string]: Stream[] }
+}>()
+</script>
+
 <template>
   <section class="video-channels">
-    <h3>Canales de <strong>League of Legends</strong> recomendados</h3>
-    <article class="video-channels__link">
-      <UiCardsStreamer />
-      <UiCardsStreamer />
-      <UiCardsStreamer />
-    </article>
-    <div class="video-channels__show">
-      <span>Mostrar más</span>
-      <Icon class="video-channels__icon" name="ix:chevron-down" />
+    <h3>Canales recomendados</h3>
+
+    <div v-for="(streams, categoryId) in categoryStreams" :key="categoryId">
+      <h4>{{ categoryId }} Streams</h4>
+
+      <article class="video-channels__link">
+        <UiCardsStreamer
+          v-for="stream in streams"
+          :key="stream.id"
+          :stream="stream"
+        />
+      </article>
     </div>
   </section>
 </template>
-
 <style lang="scss" scoped>
 .video-channels {
   border-bottom: 0.2em solid var(--c-white);

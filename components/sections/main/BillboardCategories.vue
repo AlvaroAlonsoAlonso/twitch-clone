@@ -1,13 +1,17 @@
+<script lang="ts" setup>
+import type { Categories } from '@/interfaces/twitch'
+defineProps<{ categories: Categories[] }>()
+</script>
+
 <template>
   <section class="billboard">
     <h3>Categories</h3>
     <article class="billboard__categories">
-      <UiCardsCategory />
-      <UiCardsCategory />
-      <UiCardsCategory />
-      <UiCardsCategory />
-      <UiCardsCategory />
-      <UiCardsCategory />
+      <UiCardsCategory
+        v-for="category in categories"
+        :key="category.id"
+        v-bind="category"
+      />
     </article>
   </section>
 </template>
