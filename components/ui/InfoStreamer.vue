@@ -1,9 +1,16 @@
+<script lang="ts" setup>
+import type { Stream } from '@/interfaces/twitch'
+
+defineProps<Stream & { profileImage: string }>()
+const twitchUtils = new TwitchUtils()
+</script>
+
 <template>
   <section class="info-streamer">
     <article>
       <NuxtImg
         class="info-streamer__photo-stream"
-        src="https://static-cdn.jtvnw.net/jtv_user_pictures/863b2191-20a3-44c4-bd60-7fe8b59d2dab-profile_image-70x70.png"
+        :src="twitchUtils.formatThumbnail(profileImage)"
         alt=""
       />
     </article>
@@ -11,7 +18,7 @@
     <aside class="info-streamer__aside">
       <header class="info-streamer__header">
         <article>
-          <h3>Miduuxeneize</h3>
+          <h3>{{ user_name }}</h3>
         </article>
         <article>
           <div class="info-streamer__button">
@@ -29,15 +36,15 @@
       </header>
 
       <section class="info-streamer__main">
-        <h3>
-          Presentación LÓGICA APLICADA [Proyectos reales] 🧠 !retos !discord
-        </h3>
+        <h3>{{ title }}</h3>
         <div class="info-streamer__icon-directs">
           <div class="info-streamer__follow">
             <Icon name="ix:user" class="info-streamer__icon--follow" />
-            <span>14,346</span>
+            <span>{{ viewer_count }}</span>
           </div>
-          <time datetime="">3:23:05</time>
+          <time :datetime="started_at">{{
+            twitchUtils.formatTime(started_at)
+          }}</time>
           <Icon
             name="heroicons-solid:arrow-up-tray"
             class="info-streamer__icon"
@@ -50,14 +57,9 @@
       </section>
 
       <footer class="info-streamer__footer">
-        <h3 class="info-streamer__categorie">Talk show & Podcasts</h3>
+        <h3 class="info-streamer__categorie">{{ game_name }}</h3>
         <article class="info-streamer__tabs">
-          <UiTheTab>programacion</UiTheTab>
-          <UiTheTab>tecnologia</UiTheTab>
-          <UiTheTab>typeScript</UiTheTab>
-          <UiTheTab>Github</UiTheTab>
-          <UiTheTab>Español</UiTheTab>
-          <UiTheTab>informatica</UiTheTab>
+          <UiTheTab v-for="tag in tags" :key="tag">{{ tag }}</UiTheTab>
         </article>
       </footer>
     </aside>

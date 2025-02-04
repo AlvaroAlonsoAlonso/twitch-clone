@@ -1,22 +1,35 @@
+<script lang="ts" setup>
+import type { Stream } from '@/interfaces/twitch'
+const twitchUtils = new TwitchUtils()
+defineProps<Stream>()
+</script>
+
 <template>
-  <section class="channel">
+  <NuxtLink
+    :to="{
+      name: 'streamer',
+      params: { streamer: user_login },
+      query: { id: user_id },
+    }"
+    class="channel"
+  >
     <article class="channel__info">
       <NuxtImg
         class="channel__photo-stream"
-        src="https://static-cdn.jtvnw.net/jtv_user_pictures/863b2191-20a3-44c4-bd60-7fe8b59d2dab-profile_image-70x70.png"
+        :src="twitchUtils.formatThumbnail(thumbnail_url)"
         alt=""
       />
       <section>
-        <p class="channel__name">Miduncy</p>
-        <p class="channel__category">Coding</p>
+        <p class="channel__name">{{ user_name }}</p>
+        <p class="channel__category">{{ game_name }}</p>
       </section>
     </article>
 
     <div class="channel__followers">
       <Icon class="channel__icon-point" name="ix:circle-filled" />
-      <p class="channel__number">2.3K</p>
+      <p class="channel__number">{{ viewer_count }}</p>
     </div>
-  </section>
+  </NuxtLink>
 </template>
 
 <style lang="scss" scoped>
@@ -38,10 +51,18 @@
   &__name {
     font-size: var(--font-s-large);
     font-weight: var(--font-w-bold);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 9.375rem;
   }
 
   &__category {
     font-weight: var(--font-w-ligh);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 9.375rem;
   }
 
   &__icon-point {

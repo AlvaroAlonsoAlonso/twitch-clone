@@ -1,11 +1,13 @@
 <template>
   <nav class="navbar">
     <section class="navbar__logo">
-      <NuxtImg
-        src="/logo_twitch.png"
-        alt="Imagen corporativa de la web de midutch"
-        class="navbar__logo-corporative"
-      />
+      <NuxtLink to="/">
+        <NuxtImg
+          src="/logo_twitch.png"
+          alt="Imagen corporativa de la web de midutch"
+          class="navbar__logo-corporative"
+        />
+      </NuxtLink>
       <h1>MIDUTCH</h1>
       <Icon
         name="heroicons-solid:dots-vertical"

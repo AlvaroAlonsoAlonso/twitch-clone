@@ -1,14 +1,17 @@
+<script lang="ts" setup>
+import type { UserInfo } from '@/interfaces/twitch'
+defineProps<UserInfo & { viewerCount: number }>()
+</script>
 <template>
   <section class="social">
-    <h2 class="social__streamer">Acerca de Midudev</h2>
+    <h2 class="social__streamer">Acerca de {{ display_name }}</h2>
     <article class="social__panel">
       <section class="social__follow">
-        <p>184M</p>
+        <p>{{ viewerCount }}</p>
         <p>seguidores</p>
       </section>
       <p>
-        Hola 👋🏼 Mi nombre es Brais Moure 💻 Soy ingeniero de software freelance
-        📚 Te enseño programación y desarrollo de software.
+        {{ description }}
       </p>
       <div class="social__line"></div>
       <article class="social__icons">
