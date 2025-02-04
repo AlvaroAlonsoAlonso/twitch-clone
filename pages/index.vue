@@ -1,6 +1,7 @@
 <template>
   <section class="home">
     <SectionsMainVideoChannels />
+    <SectionsMainBillboardCategories />
   </section>
 </template>
 <style lang="scss" scoped>
