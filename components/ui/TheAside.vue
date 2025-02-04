@@ -1,14 +1,29 @@
+<script lang="ts" setup>
+import type { Stream } from '@/interfaces/twitch'
+
+const { getTopStreamerSpanish } = useTwitch()
+const dataStreamer = ref<Stream[]>([])
+
+onMounted(async () => {
+  try {
+    dataStreamer.value = await getTopStreamerSpanish()
+  } catch (error) {
+    console.error('Error al obtener los streamers:', error)
+  }
+})
+</script>
+
 <template>
   <aside class="aside">
     <header class="aside__header">
       <h3>Canales en directo</h3>
       <Icon class="aside__icon" name="ix:arrow-left" />
     </header>
-
-    <UiTheDirectChannel />
-    <UiTheDirectChannel />
-    <UiTheDirectChannel />
-    <UiTheDirectChannel />
+    <UiTheDirectChannel
+      v-for="stream in dataStreamer"
+      :key="stream.id"
+      v-bind="stream"
+    />
   </aside>
 </template>
 <style lang="scss" scoped>
