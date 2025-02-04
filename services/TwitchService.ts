@@ -48,10 +48,31 @@ export default class TwitchService {
     return data.data
   }
 
+  async getTopStreamerSpanish() {
+    const { data } = await this.fetchAPI('streams', '?language=es&first=20')
+    return data
+  }
+
   async getStreamById(streamerId: string) {
     const data = await this.fetchAPI('streams', `?user_id=${streamerId}`)
     return data
   }
 
-  async getTopStreamersByCategory() {}
+  async getUserInfo(userLogin: string) {
+    const { data } = await this.fetchAPI('users', `?login=${userLogin}`)
+    return data.length ? data[0] : null
+  }
+
+  async getTagsByGame(gameId: string) {
+    const { data } = await this.fetchAPI('streams/tags', `?game_id=${gameId}`)
+    return data
+  }
+
+  async getStreamsByGame(gameId: string, limit: number = 3) {
+    const { data } = await this.fetchAPI(
+      'streams',
+      `?game_id=${gameId}&first=${limit}`,
+    )
+    return data
+  }
 }
