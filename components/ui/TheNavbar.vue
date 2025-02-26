@@ -11,18 +11,18 @@
       <h1>MIDUTCH</h1>
       <Icon
         name="heroicons-solid:dots-vertical"
-        style="color: white"
-        class="navbar__icon"
+        class="navbar__icon navbar__icon--point"
       />
     </section>
     <section class="navbar__search">
-      <input type="text" placeholder="Buscar" class="navbar__input-text" />
-      <div class="navbar__icon-search">
-        <Icon name="simple-line-icons:magnifier" class="navbar__icon" />
-      </div>
+      <input type="text" placeholder="Buscar..." class="navbar__input-text" />
+      <Icon name="heroicons-solid:magnifying-glass" class="navbar__icon" />
     </section>
     <section class="navbar__login">
-      <Icon name="ix:notifications" class="navbar__icon" />
+      <div class="navbar__container-news">
+        <Icon name="tabler:crown" class="navbar__icon" />
+        <div class="navbar__news">63</div>
+      </div>
       <div class="navbar__login-button">Log in</div>
       <div class="navbar__login-button navbar__login-button--active">
         Sign Up
@@ -36,53 +36,94 @@
   @include flex($justify: space-between);
 
   background-color: var(--c-grey);
-  color: white;
+  color: var(--c-white);
   padding: 1em 2em;
 
-  &__logo {
-    @include flex($justify: flex-start);
+  @include responsive() {
+    padding: 1em;
+  }
 
-    width: 20%;
+  &__logo {
+    @include flex($justify: flex-start, $gap: 0.6em);
   }
 
   &__icon {
     color: var(--c-white);
-    font-size: 2em;
-    padding: 0 1em;
+    font-size: 1.5em;
+    padding: 0 0.7em;
+    cursor: pointer;
+
+    &--point {
+      @include responsive() {
+        display: none;
+      }
+    }
   }
 
   &__logo-corporative {
-    padding: 0 1em;
+    width: 2em;
   }
 
   &__search {
     @include flex();
 
-    width: 60%;
-  }
+    border-radius: 0.5em;
+    background-color: var(--c-grey-dark);
+    width: 30%;
 
-  &__icon-search {
-    cursor: pointer;
+    @include responsive() {
+      width: 40%;
+    }
   }
 
   &__input-text {
-    padding: 1em;
-    border-radius: 0.5em;
-    width: 40%;
+    width: 100%;
+    padding: 0.5em 1em;
+    color: var(--c-grey-soft);
+    background-color: var(--c-grey);
+    border: 0.1em solid var(--c-grey-dark);
+    border-top-left-radius: 0.5em;
+    border-bottom-left-radius: 0.5em;
+
+    &::placeholder {
+      color: var(--c-grey-soft);
+    }
+  }
+
+  &__container-news {
+    @include flex($gap: 0.5em);
+
+    position: relative;
+  }
+
+  &__news {
+    background-color: var(--c-red);
+    color: var(--c-white);
+    padding: 0 0.5em;
+    border-radius: 1em;
+    position: absolute;
+    bottom: 0.8em;
+    left: 0.6em;
   }
 
   &__login {
     @include flex($justify: flex-end, $gap: 1em);
 
-    width: 20%;
+    @include responsive() {
+      @include flex($justify: flex-end);
+    }
   }
 
   &__login-button {
     color: var(--c-white);
-    background-color: var(--c-grey-light);
-    padding: 1em;
-    border-radius: 0.7em;
+    background-color: var(--c-grey-dark);
+    padding: 0.5em 1em;
+    border-radius: 0.3em;
     cursor: pointer;
+
+    @include responsive() {
+      display: none;
+    }
 
     &--active {
       background-color: var(--c-primary);
