@@ -6,7 +6,9 @@
   --c-grey: #222223;
   --c-white: #fff;
   --c-red: #ff0101;
-  --c-grey-light: #353535;
+  --c-grey-dark: #353535;
+  --c-grey-medium: #dedee366;
+  --c-grey-soft: #f5f5f5;
   --c-red-light: #ff8280;
 
   /* Fonts */
