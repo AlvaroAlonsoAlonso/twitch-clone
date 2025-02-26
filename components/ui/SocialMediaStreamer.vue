@@ -57,7 +57,7 @@ defineProps<UserInfo & { viewerCount: number }>()
 
   &__line {
     width: 100%;
-    border: 0.1em solid var(--c-grey-light);
+    border: 0.1em solid var(--c-grey-dark);
   }
 
   &__icons {
