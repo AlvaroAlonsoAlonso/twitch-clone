@@ -4,7 +4,7 @@ defineProps<{ categories: Categories[] }>()
 </script>
 
 <template>
-  <section class="billboard">
+  <section v-if="categories" class="billboard">
     <h3>Categories</h3>
     <article class="billboard__categories">
       <UiCardsCategory
@@ -23,10 +23,21 @@ defineProps<{ categories: Categories[] }>()
   width: 100%;
 
   &__categories {
-    @include flex($justify: flex-start, $gap: 1em);
-
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(11.625rem, 1fr));
+    gap: 1em;
     padding: 1em 0;
     width: 100%;
+
+    @include responsive(48rem) {
+      grid-auto-flow: column;
+      overflow-x: auto;
+      white-space: nowrap;
+
+      & > * {
+        width: 12.5rem;
+      }
+    }
   }
 }
 </style>

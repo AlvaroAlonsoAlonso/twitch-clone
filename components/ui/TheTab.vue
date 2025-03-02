@@ -7,7 +7,7 @@
 <style lang="scss" scoped>
 .tab {
   background-color: var(--c-grey-dark);
-  padding: 0.4em 1em;
+  padding: 0 0.6em;
   border-radius: 1em;
 }
 </style>

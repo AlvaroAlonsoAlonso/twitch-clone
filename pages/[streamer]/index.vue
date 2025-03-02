@@ -10,22 +10,17 @@ const streamerData = ref<Stream | null>(null)
 const userInfo = ref<UserInfo | null>(null)
 
 onMounted(async () => {
-  try {
-    if (!streamerId) {
-      return
-    }
-
-    const response = await twitchService.getStreamById(streamerId)
-    streamerData.value = response.data.length ? response.data[0] : null
-    if (!streamerData.value?.user_login) {
-      return
-    }
-    userInfo.value = await twitchService.getUserInfo(
-      streamerData?.value.user_login,
-    )
-  } catch (error) {
-    console.log(error)
+  if (!streamerId) {
+    return
   }
+  const response = await twitchService.getStreamById(streamerId)
+  streamerData.value = response.data.length ? response.data[0] : null
+  if (!streamerData.value?.user_login) {
+    return
+  }
+  userInfo.value = await twitchService.getUserInfo(
+    streamerData?.value.user_login,
+  )
 })
 </script>
 

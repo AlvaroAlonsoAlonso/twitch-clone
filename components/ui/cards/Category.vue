@@ -6,31 +6,39 @@ defineProps<Categories>()
 
 <template>
   <section class="category">
-    <NuxtImg
-      class="category__img"
-      :src="twitchUtils.formatThumbnail(box_art_url, 188, 250)"
-      :alt="name"
-    />
+    <header class="category__header">
+      <NuxtImg
+        class="category__img"
+        :src="twitchUtils.formatThumbnail(box_art_url, 188, 250)"
+        :alt="name"
+      />
+    </header>
     <footer class="category__info">
       <h3 class="category__name">{{ name }}</h3>
       <p>34K espectadores</p>
       <UiTheTab>Gaming</UiTheTab>
-      <UiTheTabPhoto />
     </footer>
   </section>
 </template>
 
 <style lang="scss" scoped>
 .category {
+  @include flex($direction: column, $justify: flex-start, $gap: 0.5em);
+
   cursor: pointer;
 
+  &__header {
+    width: 100%;
+  }
+
   &__img {
-    width: 12em;
+    width: 100%;
   }
 
   &__info {
     @include flex(column, flex-start, $gap: 0.5em);
 
+    width: 100%;
     padding: 1em 0;
   }
 

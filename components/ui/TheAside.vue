@@ -5,11 +5,7 @@ const { getTopStreamerSpanish } = useTwitch()
 const dataStreamer = ref<Stream[]>([])
 
 onMounted(async () => {
-  try {
-    dataStreamer.value = await getTopStreamerSpanish()
-  } catch (error) {
-    console.error('Error al obtener los streamers:', error)
-  }
+  dataStreamer.value = await getTopStreamerSpanish()
 })
 </script>
 

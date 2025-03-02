@@ -8,10 +8,8 @@ defineProps<{
 <template>
   <section class="video-channels">
     <h3>Canales recomendados</h3>
-
     <div v-for="(streams, categoryId) in categoryStreams" :key="categoryId">
       <h4>{{ categoryId }} Streams</h4>
-
       <article class="video-channels__link">
         <UiCardsStreamer
           v-for="stream in streams"
@@ -22,6 +20,7 @@ defineProps<{
     </div>
   </section>
 </template>
+
 <style lang="scss" scoped>
 .video-channels {
   border-bottom: 0.2em solid var(--c-white);
@@ -29,20 +28,27 @@ defineProps<{
   width: 100%;
 
   &__link {
-    @include flex($justify: flex-start, $gap: 1em);
-
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(15.625rem, 1fr));
+    gap: 1em;
     padding: 1em 0;
     width: 100%;
-  }
 
-  &__show {
-    color: var(--c-white);
+    @include responsive(48rem) {
+      grid-template-columns: repeat(auto-fit, minmax(12.5rem, 1fr));
+      grid-auto-flow: column;
+      overflow-x: auto;
+      white-space: nowrap;
 
-    @include flex($gap: 0.5em);
+      & > * {
+        width: 12.5rem;
+      }
+    }
 
-    width: 100%;
-    text-align: center;
-    padding: 1em 0;
+    @include responsive(30rem) {
+      grid-template-columns: repeat(auto-fit, minmax(9.375rem, 1fr));
+      gap: 0.25em;
+    }
   }
 }
 </style>
