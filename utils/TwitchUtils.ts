@@ -14,6 +14,14 @@ export default class TwitchUtils {
     return this.formatThumbnail(thumbnailUrl, 802, 452)
   }
 
+  formatTitleMaxCharacter(title: string, maxCharacters: number = 40): string {
+    if (title.length <= maxCharacters) {
+      return title
+    } else {
+      return title.substring(0, maxCharacters - 3) + '...'
+    }
+  }
+
   formatTime(isoDate: string): string {
     const diffMs = Date.now() - new Date(isoDate).getTime()
     const hours = Math.floor(diffMs / 3600000)
