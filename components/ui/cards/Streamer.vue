@@ -26,15 +26,13 @@ defineProps<{ stream: Stream }>()
         alt="Streamer Avatar"
       />
 
-      <section>
-        <h3 class="streamer__title">{{ stream.title }}</h3>
+      <section class="streamer__content">
+        <h3 class="streamer__title">
+          {{ twitchUtils.formatTitleMaxCharacter(stream.title) }}
+        </h3>
         <div class="streamer__name">
           <p>{{ stream.user_name }}</p>
-          <Icon
-            name="ix:trophy-filled"
-            style="color: white"
-            class="streamer__icon"
-          />
+          <Icon name="bx:bxs-badge-check" class="streamer__icon" />
         </div>
 
         <p>{{ stream.game_name }}</p>
@@ -50,14 +48,19 @@ defineProps<{ stream: Stream }>()
 
 <style lang="scss" scoped>
 .streamer {
+  @include flex($direction: column, $justify: flex-start, $gap: 0.5em);
+
   &__poster {
     width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
   }
 
   &__info {
     @include flex($justify: flex-start, $align: flex-start, $gap: 1em);
 
     padding: 1em 0;
+    width: 100%;
   }
 
   &__photo-stream {
@@ -65,15 +68,19 @@ defineProps<{ stream: Stream }>()
     width: 3em;
   }
 
+  &__content {
+    max-width: 85%;
+  }
+
   &__title {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    max-width: 22.375rem;
+    max-width: 85%;
   }
 
   &__name {
-    @include flex($justify: flex-start, $gap: 1em);
+    @include flex($justify: flex-start, $gap: 0.2em);
 
     padding: 0.5em 0;
   }
@@ -83,7 +90,7 @@ defineProps<{ stream: Stream }>()
   }
 
   &__tab {
-    @include flex($justify: flex-start, $gap: 1em);
+    @include flex($justify: flex-start, $gap: 0.5em);
 
     padding: 1em 0;
   }
